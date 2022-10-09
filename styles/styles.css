@@ -1,0 +1,20 @@
+.main-section {
+    background-color: #f2e8c3;
+}
+
+.main-section section {
+    background-color: #f6dbad;
+}
+
+.aside {
+    background-color: #dcf1d0;
+}
+
+.footer section {
+    background-color: #FFFFFF;
+}
+
+.header,
+.footer {
+    background-color: #cfcaca;
+}
