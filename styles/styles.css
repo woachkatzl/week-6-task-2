@@ -1,50 +1,94 @@
-body {
+@media screen and (min-width: 768px) {
+    body {
+        height: 100vh;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 10vh 1fr 15vh;
+    }
+
+    .header {
+        grid-area: 1 / 1 / 2 / 4;
+    }
+
+    .main {
+        grid-area: 2 / 1 / 3 / 2;
+        grid-template: repeat(3, 1fr) / 1fr 1fr;
+    }
+
+    .container {
+        grid-area: 1 / 1 / 2 / 3;
+    }
+
+    .section-1 {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .section-2 {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+
+    .section-3 {
+        grid-area: 3 / 1 / 4 / 3;
+    }
+
+    .aside {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+
+    .footer {
+        grid-area: 3 / 1 / 4 / 4;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+    body {
+        grid-template-rows: [header-start] 10vh [header-end main-start] 1fr [main-end footer-start] 1fr [footer-end];
+        grid-template-columns: [main-start] 50% [main-end aside-start] 50% [aside-end];
+    }
+
+    .header {
+        grid-area: header-start / main-start / header-end / aside-end;
+    }
+
+    .main {
+        grid-area: main-start / main-start / main-end / main-end;
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .aside {
+        grid-area: main-start / aside-start / main-end / aside-end;
+    }
+
+    .footer {
+        grid-area: footer-start / main-start / footer-end / aside-end;
+        grid-template-rows: repeat(auto-fit, 15vh);
+        grid-template-columns: repeat(auto-fit, minmax(max-content, 50%));
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .aside {
+        min-height: 25vh;
+    }
+}
+
+body,
+.main,
+.footer {
     display: grid;
+}
+
+body {
     width: 100vw;
-    height: 100vh;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 10vh 1fr 15vh;
     text-align: center;
 }
 
-.header {
-    grid-area: 1 / 1 / 2 / 4;
-}
-
 .main {
-    grid-area: 2 / 1 / 3 / 2;
-    display: grid;
-    grid-template: repeat(3, 1fr) / 1fr 1fr;
-    justify-content: space-around;
-    /* не сработало это свойство почему-то, сделала через margin. В футере так же было и тоже не сработало */
     background-color: #f2e8c3;
 }
 
-.container {
-    grid-area: 1 / 1 / 2 / 3;
-}
-
-.section-1 {
-    grid-area: 2 / 1 / 3 / 2;
-}
-
-.section-2 {
-    grid-area: 2 / 2 / 3 / 3;
-}
-
-.section-3 {
-    grid-area: 3 / 1 / 4 / 3;
-}
-
 .aside {
-    grid-area: 2 / 2 / 3 / 3;
     background-color: #dcf1d0;
-}
-
-.footer {
-    grid-area: 3 / 1 / 4 / 4;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
 }
 
 .main section {
@@ -53,6 +97,7 @@ body {
 }
 
 .footer section {
+    height: 10vh;
     margin: 20px;
     background-color: #FFFFFF;
 }
